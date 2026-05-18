@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+@theme {
+  /* EASY Idiomas Brand - Red & Blue retained but refined */
+  --color-primary: #ba0013;
+  --color-primary-container: #e31e24;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ffffff;
+  --color-inverse-primary: #ffb4ab;
+
+  --color-secondary: #2C3E50;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #EEF2F6;
+  --color-on-secondary-container: #1E293B;
+
+  --color-tertiary: #006190;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #E0F2FE;
+  --color-on-tertiary-container: #0369A1;
+
+  /* Crisp SaaS Surfaces */
+  --color-surface: #ffffff;
+  --color-surface-dim: #f8fafc;
+  --color-surface-bright: #ffffff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+  
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #64748b;
+  --color-inverse-surface: #1e293b;
+  --color-inverse-on-surface: #f8fafc;
+
+  --color-outline: #cbd5e1;
+  --color-outline-variant: #e2e8f0;
+
+  --color-background: #F4F7F9; /* Very soft neutral-blue background */
+  --color-on-background: #0f172a;
+
+  --color-error: #ef4444;
+  --color-on-error: #ffffff;
+  --color-error-container: #fee2e2;
+  --color-on-error-container: #b91c1c;
+
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --spacing-unit: 4px;
+  --spacing-gutter: 24px;
+  --spacing-margin-mobile: 16px;
+  --spacing-margin-desktop: 32px;
+  --spacing-container-max: 1440px;
+
+  /* Typography Refined */
+  --font-display-lg: 700 48px/52px 'Plus Jakarta Sans', sans-serif;
+  --font-headline-lg: 700 32px/40px 'Plus Jakarta Sans', sans-serif;
+  --font-headline-md: 700 24px/32px 'Plus Jakarta Sans', sans-serif;
+  --font-headline-sm: 600 18px/26px 'Plus Jakarta Sans', sans-serif;
+  --font-body-lg: 400 18px/28px 'Plus Jakarta Sans', sans-serif;
+  --font-body-md: 400 15px/24px 'Plus Jakarta Sans', sans-serif;
+  --font-label-md: 600 14px/20px 'Plus Jakarta Sans', sans-serif;
+  --font-label-sm: 600 12px/16px 'Plus Jakarta Sans', sans-serif;
+  --font-headline-lg-mobile: 700 28px/36px 'Plus Jakarta Sans', sans-serif;
+}
+
+.dark {
+  --color-surface: #0f172a;
+  --color-surface-dim: #020617;
+  --color-surface-bright: #1e293b;
+  --color-surface-container-lowest: #020617;
+  --color-surface-container-low: #0f172a;
+  --color-surface-container: #1e293b;
+  --color-surface-container-high: #334155;
+  --color-surface-container-highest: #475569;
+  
+  --color-on-surface: #f8fafc;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #f8fafc;
+  --color-inverse-on-surface: #0f172a;
+
+  --color-outline: #334155;
+  --color-outline-variant: #1e293b;
+
+  --color-background: #020617;
+  --color-on-background: #f8fafc;
+  
+  --color-primary: #ef4444; /* Brighter red for dark mode */
+  
+  --color-secondary: #38bdf8;
+  --color-on-secondary: #0f172a;
+  --color-secondary-container: #0c4a6e;
+  --color-on-secondary-container: #e0f2fe;
+
+  --color-tertiary: #7dd3fc;
+  --color-tertiary-container: #0369a1;
+  --color-on-tertiary-container: #e0f2fe;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-outlined.fill {
+  font-variation-settings: 'FILL' 1;
+}
+
+/* Hide scrollbar for horizontal scroll areas but keep functionality */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Base interactive transitions */
+button, a {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Premium SaaS Card Shadow */
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 24px -6px rgba(15, 23, 42, 0.05);
+}
+
+.dark .glass-card {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.5);
+}
+
+.bento-shadow {
+  box-shadow: 0 2px 12px -2px rgba(15, 23, 42, 0.03), 0 4px 6px -1px rgba(15, 23, 42, 0.02);
+}
+
+.dark .bento-shadow {
+  box-shadow: 0 2px 12px -2px rgba(0, 0, 0, 0.3), 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+.bento-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.bento-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -4px rgba(15, 23, 42, 0.06), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+}
+
+.dark .bento-hover:hover {
+  box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.4), 0 4px 10px -2px rgba(0, 0, 0, 0.3);
+}
