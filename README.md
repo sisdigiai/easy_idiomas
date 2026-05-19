@@ -1,20 +1,49 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Easy Idiomas
 
-# Run and deploy your AI Studio app
+SaaS para escolas de idiomas — ecossistema sisdigiai.
 
-This contains everything you need to run your app locally.
+**Deploy em produção:** (a definir)
 
-View your app in AI Studio: https://ai.studio/apps/ff5209dc-6e08-4b53-96bb-3010cc39a012
+## Stack
 
-## Run Locally
+React 19 + Vite + Supabase + Google Gemini API
 
-**Prerequisites:**  Node.js
+## Rodar localmente
 
+```bash
+npm install
+npm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Variáveis de ambiente
+
+Copie `.env.example` para `.env` e configure:
+
+- `GEMINI_API_KEY` — Google Gemini API
+- `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` — Supabase
+- `GITHUB_USERNAME` / `GITHUB_TOKEN` — credenciais para `git push` (ver abaixo)
+
+## Configurar `git push` com token do .env (uma vez por clone)
+
+Este repo segue a convenção do ecossistema sisdigiai: credential helper que lê `GITHUB_TOKEN` do `.env`. Configurar:
+
+```bash
+git config --local --unset-all credential.helper
+git config --local --add credential.helper ""
+git config --local --add credential.helper "$(pwd)/scripts/git-credential-env.sh"
+```
+
+PAT precisa de escopo `repo`. Rotaciona em https://github.com/settings/tokens.
+
+## Convenções do ecossistema
+
+Este repo segue as convenções técnicas documentadas em:
+
+`D:\projetos\diferentes\docs\digiai\docs\07-operacao\convencoes-tecnicas-ecossistema-sisdigiai.md`
+
+Resumindo as travas principais:
+
+- **Branch único `main`** — sem branches paralelas
+- **Credential helper via `.env`** — sem popup do Git Credential Manager
+- **Backups antes de operações destrutivas** — em `D:\projetos\diferentes\_backups\`
+- **README completo** com propósito, deploy URL, stack, instruções
