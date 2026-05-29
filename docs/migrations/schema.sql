@@ -1,0 +1,4 @@
+-- ESPELHO DE SCHEMA — easy-idiomas
+-- ⏳ PENDENTE: sem token Management no easy-idiomas/.env (SUPABASE_TOKEN / SUPABASE_ACCESS_TOKEN / ACCESS_TOKEN_SUPABASE)
+-- e/ou sem VITE_SUPABASE_URL. As 18 migrations em ./migrations/ são a fonte canônica do schema.
+-- Regenerar quando o token existir: node Cockpit/scripts/dump-db-mirror.mjs easy-idiomas
